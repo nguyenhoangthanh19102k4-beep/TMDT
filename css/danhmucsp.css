@@ -1,0 +1,133 @@
+.dmsp{
+    padding: 25px 20px;
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.trongkinh{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    gap:30px;
+}
+
+.timkiem{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    gap:30px;
+}
+
+.dsbc{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap:30px;
+}
+
+
+.kinhram{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    gap:30px;
+}
+
+.gongkinh{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    gap:30px;
+}
+
+.ndsp{
+    display:flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ndsp div{
+
+    overflow:hidden;
+}
+
+.ndsp div img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.dmsp a{
+    text-decoration: none;
+}
+.dmsp a:hover{
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* giống Figma */
+    transform: translateY(-2px)
+}
+
+
+
+.tensp{
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 17px;
+    color: black;
+}
+
+.gia{
+    color: red;
+    font-weight: 600;
+}
+
+.filter{
+    margin-bottom: 40px;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+
+.filter select{
+    cursor: pointer;
+    padding: 7px 16px;
+    text-align: left;
+    border-radius: 30px;
+    border: 0.2px solid black;
+    width: 140px;
+}
+
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    margin: 0 4px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border: 0.2px solid #ccc;
+    border-radius: 50%;
+    text-decoration: none;
+    color: black;
+}
+
+
+.pagination .current {
+    background-color: #fff;
+    border: 0.4px solid black;
+}
+
+.pagination .arrow {
+    font-size: 20px;
+    line-height: 34px;
+}
+
+.pagination a:hover{
+    box-shadow: none;
+}

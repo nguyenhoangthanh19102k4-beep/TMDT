@@ -1,0 +1,63 @@
+.goiy{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    gap:30px;
+    margin: 50px 30px;
+}
+
+.goiy a{
+    text-decoration: none;
+}
+
+.goiy a:hover{
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* giống Figma */
+    transform: translateY(-2px)
+}
+
+.ctietsp{
+    margin: 50px 30px;
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+}
+
+.ttin p{
+    margin-top: 0;
+    padding: 5px 10px;
+    width: 90%;
+    background-color: #E8E8E8; 
+    color:rgba(0, 0, 0, 0.7); 
+    line-height: 2; 
+    min-height: 270px; 
+    font-size:18px;
+}
+
+input[name = "add_to_cart"]{
+    cursor: pointer;
+    border: 0.5px solid black;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px
+}
+ 
+
+.add{
+    padding: 0 30px;
+    gap: 80px;
+    display: flex;
+    margin-top: 20px;
+}
+
+
+input[name = "quantity"]{
+    border: 0.5px solid black;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px 0px;
+    width: 150px;
+}
+ 

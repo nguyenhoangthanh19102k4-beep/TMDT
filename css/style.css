@@ -1,0 +1,170 @@
+/* TOÀN TRANG */
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+/* HEADER */
+header{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    height: 130px;
+    position: sticky;
+    z-index: 100;
+    background: #FFFFFF;
+    background-blend-mode: hard-light;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.menu {
+    padding-left: 0px;
+    list-style: none; /*bỏ dấu đầu dòng*/
+    display: flex;
+    margin-top: 40px;
+    gap: 30px; /*khoảng cách*/
+}
+
+.menu li a {
+    width: 130px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    text-align: center;
+
+    color: #000000;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menu li a:hover {
+    font-weight:600;
+    border-bottom: 0.5px solid black; /* Gạch chân đậm màu đen */
+    transition: transform 0.2s ease, border-bottom 0.2s ease;
+}
+
+.logo{
+    width: 130px;
+    height: 130px;
+}
+.logo a img{
+    width:100%;
+}
+
+button[name = "toggle-search"]{
+    background: none;
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+button[name = "search"]{
+    background: none;
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+
+button img{
+    width: 100%;
+}
+
+input[name = "key"]{
+    padding: 10px 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: black solid 0.5px;
+    width: 390px;
+}
+
+.icon-cart {
+    width: 30px;
+    height: 30px;
+}
+.icon-cart a img {
+    width: 100%;
+}
+
+.sxc{
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+
+/* MAIN */
+main{
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+
+/* FOOTER */
+footer{
+    font-size: 15px;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 35px;
+    color: #FFFFFF;
+    height: 400px;
+    background-color: black;
+    display: flex;
+}
+
+footer > div{
+    max-width: 400px;
+}
+
+.social{
+    display: flex;
+    gap: 20px;
+}
+
+ 
+.footer h3{
+    font-size: 20px;
+}
+
+.logof{
+    position: relative;
+    left: 30px;
+}
+
+.san{ 
+    padding-left: 28px;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+}
+.gioithieu{
+    flex:1;
+}
+.csachxlhe {
+
+    display: flex;
+    gap: 35px;
+}
+.tmdt{
+    flex:1;
+}
+.ppttoan{
+    padding-left: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.footer p{
+    line-height: 1.4;
+}
+
+

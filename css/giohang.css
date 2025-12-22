@@ -1,0 +1,157 @@
+.giohang{
+    padding: 40px 35px;
+    background-color: #59595915;
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.giohang p{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.giohang input[type="text"]{
+    color: #595959e6;
+    font-size: 15px;
+    border: 0.1px solid;
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 90%;
+}
+
+.giohang .ttvc{
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    width: 500px;
+    box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
+}
+
+.noio{
+    display: flex;
+    gap: 7px;
+}
+
+.noio > div {
+    flex: 1; /* Mỗi div chiếm 1 phần bằng nhau */
+}
+
+.noio select{
+    font-size: 15px;
+    border: 0.1px solid;
+    border-radius: 5px;
+    padding: 10px 7.5px;
+    color: #595959e6;
+}
+
+.htthanhtoan label{
+    width: 90%;
+    color: #595959e6;
+    padding: 10px 10px;
+    margin: 20px 0px;
+    border: 0.2px solid gray;
+    font-size: 17px;
+    display: flex;
+    gap: 49%;
+    border-radius: 10px;
+}
+
+textarea[name="note"]{
+    width: 90%;
+    font-family: 'Inter', sans-serif;
+    resize: none;
+    padding: 10px 10px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+input[name = "thanhtoan"]{
+    margin-top: 40px;
+    border: 0.2px solid #333;
+    font-size: 21px;
+    cursor: pointer;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: #000000;
+    font-weight: 600;
+    transition: .4s cubic-bezier(.5, 0, 0, 1.25);
+    width: 99%;
+}
+
+input[name = "thanhtoan"]:hover{
+    border: 0.2px solid #333;
+    background-color: white;
+    color: #000000;
+ }
+
+ .sp_cart .ndsp .tensp{
+    font-size: 18px;
+ }
+
+ .sp_cart a{
+    text-decoration: none;
+ }
+
+.sp_cart .ndsp .gia{
+    color: black;
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+.sp_cart input{
+    padding: 10px 0px;
+    margin-top: 20px;
+    width: 110px;
+}
+
+input[name="giam"]{
+    width: 30%;
+    padding: 10px 0px;
+    font-size:17px;
+    border: 0.2px solid #333;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    background-color: #000000;
+    font-weight: 600;
+    transition: .4s cubic-bezier(.5, 0, 0, 1.25);
+}
+
+input[name="giam"]:hover{
+    border: 0.2px solid #333;
+    background-color: white;
+    color: #000000;
+ }
+
+.tien{
+    display: flex; 
+    margin-bottom:20px;
+    justify-content: space-between;
+ }
+
+ .tien p{    
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+ }
+
+ input[name="del"]{
+    margin: -1px 20px;
+    font-size: 12px;
+    width: 32px;
+    border: 0.5px solid black;
+    border-radius: 100%;
+    background-color: white;
+    cursor: pointer;
+    height: 32px;
+ }
+ input[name="update_quantity_value"]{
+    border: 0.5px solid black;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px 0px;
+ }
