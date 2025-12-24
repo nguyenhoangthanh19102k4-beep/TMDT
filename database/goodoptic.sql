@@ -85,7 +85,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `categories` (bảng danh mục sản phẩm)
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `category_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 -- --------------------------------------------------------------
 --
 -- Table structure for table `target` (bảng đối tượng)
@@ -118,7 +118,7 @@ ALTER TABLE `targets`
 -- AUTO_INCREMENT for table `target` (bảng đối tượng)
 --
 ALTER TABLE `targets`
-  MODIFY `target_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `target_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 -- --------------------------------------------------------
 
@@ -155,7 +155,7 @@ ALTER TABLE `UV`
 -- AUTO_INCREMENT for table `UV` (bảng UV)
 --
 ALTER TABLE `UV`
-  MODIFY `uv_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `uv_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 -- --------------------------------------------------------------
 
@@ -190,7 +190,7 @@ ALTER TABLE `Material`
 -- AUTO_INCREMENT for table `Material` (bảng chất liệu)
 --
 ALTER TABLE `Material`
-  MODIFY `material_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `material_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 -- --------------------------------------------------------------
 
@@ -235,7 +235,7 @@ ALTER TABLE `brands`
 --
 
 ALTER TABLE `brands`
-  MODIFY `brand_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `brand_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 -- --------------------------------------------------------------
 
@@ -277,7 +277,7 @@ ALTER TABLE `Refractive`
 --
 
 ALTER TABLE `Refractive`
-  MODIFY `refractive_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `refractive_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 -- --------------------------------------------------------------
 
 --
@@ -314,7 +314,7 @@ ALTER TABLE `customers`
 --
 
 ALTER TABLE `customers`
-  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `customer_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 
 --
@@ -470,7 +470,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `products` (bảng sản phẩm)
 --
 ALTER TABLE `products`
-  MODIFY `product_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `product_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 --
 -- Constraints for table `products` (bảng sản phẩm)
 --
@@ -518,7 +518,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `orders` (bảng đơn hàng)
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for table `orders` (bảng đơn hàng)
 

@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 $server = "localhost";
 $user = "root";
 $password = "";
-$db = "GoodOptic";
+$db = "goodoptic";
 
 $conn = mysqli_connect($server, $user, $password, $db);
 
@@ -94,7 +94,7 @@ if (isset($_POST['thanhtoan'])) {
 if (empty($_SESSION['cart'])) {
     echo '<div align="center" style="min-height: 450px; margin-top: 80px;">
             <img style="width: 130px; height: 130px;" src="imgs/solar--cart-3-broken.svg" alt="">
-            <h3 style="color: gray;">CHƯA CÓ SẢN PHẨM NÀO TRONG GIỌ</h3>
+            <h3 style="color: gray;">CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ</h3>
           </div>';
     return;
 }
@@ -124,22 +124,20 @@ if (empty($_SESSION['cart'])) {
             <div>
                 <p>Tỉnh/Thành phố *</p>
                 <select name="tinh" id="tinh" style="width: 90%;">
-                    <option value="">Chọn tỉnh thành</option>
+                    <option value="">Chọn Tỉnh/Thành</option>
 
                 </select>
             </div>
             <div>
                 <p>Quận/Huyện *</p>
                 <select name="huyen" id="huyen" style="width: 90%;">
-                    <option value="">Chọn huyện</option>
-
+                    <option value="">Chọn Quận/Huyện</option>
                 </select>
             </div>
             <div>
                 <p>Xã/Phường *</p>
                 <select name="xa" id="xa" style="width: 90%;">
-                    <option value="">Chọn xã</option>
-
+                    <option value="">Chọn Xã/Phường</option>
                 </select>
             </div>
         </div>
