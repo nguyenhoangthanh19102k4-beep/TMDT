@@ -23,6 +23,8 @@ if (isset($_POST['update_quantity_id']) && isset($_POST['update_quantity_value']
             break;
         }
     }
+    header("Location: index.php?page=giohang");
+    exit();
 }
 
 if (isset($_POST['del_id'])) {
@@ -34,6 +36,8 @@ if (isset($_POST['del_id'])) {
             break;
         }
     }
+    header("Location: index.php?page=giohang");
+    exit();
 }
 
 if (isset($_POST['thanhtoan'])) {
@@ -85,6 +89,18 @@ if (isset($_POST['thanhtoan'])) {
         mysqli_stmt_bind_param($ctdh, 'iidid', $order_id, $product_id, $price, $quantity, $total_ct);
         mysqli_stmt_execute($ctdh);
     }
+
+    try {
+        require_once "./mail/sendmail.php"; 
+
+        // 2. Gọi hàm gửi mail
+        // $mail là email khách nhập từ form, $hoten là tên khách nhập từ form
+        guiMailThanhToan($mail, $hoten); 
+
+        } catch (Exception $e) {
+        // Nếu lỗi gửi mail thì vẫn chạy tiếp để khách không thấy trang trắng
+    }
+    
 
     unset($_SESSION['cart']);
     echo "<script>alert('Đặt hàng thành công!'); window.location='index.php';</script>";
