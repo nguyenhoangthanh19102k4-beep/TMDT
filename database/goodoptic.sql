@@ -483,6 +483,32 @@ ALTER TABLE `products`
   ADD CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`);
 -- --------------------------------------------------------
 
+-- -----------------------------------------------------
+-- Table structure for table `promotions` (Bảng quản lý mã giảm giá)
+-- -----------------------------------------------------
+
+CREATE TABLE `promotions` (
+  `promotion_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `promotion_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'MaGiamGia',
+  `discount_percentage` double NOT NULL DEFAULT 0 COMMENT 'phanTram',
+  `max_discount_value` double NOT NULL DEFAULT 0 COMMENT 'giaTriToiDa',
+  `expiry_date` date NOT NULL COMMENT 'ngayHetHan',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`promotion_id`),
+  UNIQUE KEY `promotions_code_unique` (`promotion_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------
+-- Dumping data mẫu cho table `promotions`
+-- -----------------------------------------------------
+
+INSERT INTO `promotions` (`promotion_code`, `discount_percentage`, `max_discount_value`, `expiry_date`) VALUES
+('GIAM20', 20.0, 50000, '2025-12-31'),
+('SUMMER2025', 10.0, 100000, '2025-08-30'),
+('WELCOME', 50.0, 20000, '2026-01-01');
+
+-- -----------------------------------------------------
+
 --
 -- Table structure for table `orders` (bảng đơn hàng)
 -- 
@@ -496,6 +522,7 @@ CREATE TABLE `orders` (
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pay_method` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('Đang xử lý','Đã xác nhận','Đang giao hàng','Đã giao hàng','Đã hủy') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Đang xử lý',
+  `promotion_id` bigint(20) UNSIGNED NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -503,11 +530,11 @@ CREATE TABLE `orders` (
 --
 -- Dumping data for table `orders` (bảng đơn hàng)
 --
-INSERT INTO `orders` (`order_id`, `customer_id`, `customer_name`, `address`, `phone`, `email`,`pay_method`,`status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Nguyen Van A', 'TP.HCM', '0909090909', 'Abc@gmail.com', 'Chuyển khoản', 'Đã hủy', '2025-05-23 05:02:40', NOW()),
-(2, 2, 'Nguyen Van B', 'TP.HCM', '09090432429', 'Adasd@gmail.com', 'Tiền mặt', 'Đang xử lý', '2025-05-23 05:02:40', NOW()),
-(3, 3, 'Nguyen Van C', 'TP.HCM', '0123123123', 'Asza@gmail.com', 'Chuyển khoản', 'Đã giao hàng', '2025-05-23 05:02:40', NOW()),
-(4, 4, 'Nguyen Van D', 'TP.HCM', '01434553123', 'Aszsda@gmail.com', 'Chuyển khoản', 'Đang giao hàng', '2025-05-23 05:02:40', NOW());
+INSERT INTO `orders` (`order_id`, `customer_id`, `customer_name`, `address`, `phone`, `email`, `pay_method`, `status`, `promotion_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Nguyen Van A', 'TP.HCM', '0909090909', 'Abc@gmail.com', 'Chuyển khoản', 'Đã hủy', NULL, '2025-05-23 05:02:40', NOW()),
+(2, 2, 'Nguyen Van B', 'TP.HCM', '09090432429', 'Adasd@gmail.com', 'Tiền mặt', 'Đang xử lý', 1, '2025-05-23 05:02:40', NOW()),
+(3, 3, 'Nguyen Van C', 'TP.HCM', '0123123123', 'Asza@gmail.com', 'Chuyển khoản', 'Đã giao hàng', 2, '2025-05-23 05:02:40', NOW()),
+(4, 4, 'Nguyen Van D', 'TP.HCM', '01434553123', 'Aszsda@gmail.com', 'Chuyển khoản', 'Đang giao hàng', NULL, '2025-05-23 05:02:40', NOW());
 --
 -- Indexes for table `orders` (bảng đơn hàng)
 --
@@ -524,6 +551,10 @@ ALTER TABLE `orders`
 
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`);
+
+ALTER TABLE `orders` 
+ADD CONSTRAINT `fk_order_promotion` 
+FOREIGN KEY (`promotion_id`) REFERENCES `promotions` (`promotion_id`);
 -- --------------------------------------------------------
 
 --
@@ -608,6 +639,7 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
   ADD CONSTRAINT `cart_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 -- --------------------------------------------------------
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

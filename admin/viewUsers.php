@@ -6,6 +6,7 @@ if ($_SESSION['user']['type'] != 'Admin'){
 ?>
 
 <div>
+  <h2>Quản lý người dùng</h2>
     <table class="table ">
         <thead>
             <tr>
@@ -47,7 +48,7 @@ if ($_SESSION['user']['type'] != 'Admin'){
     </div>
     <div class="overlay" id="divOne">
         <div id="myModalwrapper" class="modal-wrapper">
-            <h2>Cập nhật người dùng</h2><a class="close" href="#">&times;</a>
+            <h2>Thêm mới người dùng</h2><a class="close" href="#">&times;</a>
             <div class="content">
                 <div class="modal">
                     <form enctype='multipart/form-data' action="nguoidung/addAdmin.php" method="POST">
@@ -55,7 +56,7 @@ if ($_SESSION['user']['type'] != 'Admin'){
                         <input type="text" class="form-control" name="name" required>
                         <label for="email">Email:</label>
                         <input type="text" class="form-control" name="email" required>
-                        <label for="password">Mật khẩu:</label>
+                        <label for="password" >Mật khẩu:</label>
                         <input type="text" class="form-control" name="password" required>
                         <label for="phone">Số điện thoại:</label>
                         <input type="text" class="form-control" name="phone" required>
@@ -67,7 +68,9 @@ if ($_SESSION['user']['type'] != 'Admin'){
                             <option value="Admin">Quản lý</option>
                             <option value="Staff">Nhân viên</option>       
                         </select>
-                        <input type="submit" value="Thêm" name="upload">
+                        <div class="box">
+                            <input type="submit" value="Thêm" name="upload">
+                        </div>
                     </form>
                 </div>
             </div>

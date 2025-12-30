@@ -53,7 +53,7 @@ include "./sidebar.php"; ?>
                     <label for="email">Email:</label>
                     <input type="text" class="form-control" name="email" value="<?php echo $admin['email'] ?>">
                     <label for="password">Mật khẩu:</label>
-                    <input type="password" class="form-control" name="password" style="height: 25px; font-size: 16px;" value=<?php echo $admin['password'] ?>><br>
+                    <input type="password" class="form-control" name="password" value=<?php echo $admin['password'] ?>><br>
                     <label for="phone">Số điện thoại:</label>
                     <input type="text" class="form-control" name="phone" value="<?php echo $admin['phone'] ?>">
                     <label for="address">Địa chỉ:</label>
@@ -63,8 +63,9 @@ include "./sidebar.php"; ?>
                         <option value="Admin" <?= $admin['type'] === 'Admin'  ? 'selected' : '' ?>>Admin</option>
                         <option value="Staff" <?= $admin['type'] === 'Staff'  ? 'selected' : '' ?>>Staff</option>
                     </select>
-                    
-                    <input type="submit" value="Cập nhật" name="btnUpdate">
+                    <div class="box">
+                        <input type="submit" value="Cập nhật" name="btnUpdate">
+                    </div>
                 </form>
             </div>
         </div>
