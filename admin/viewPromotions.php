@@ -35,7 +35,7 @@ if ($_SESSION['user']['type'] != 'Admin'){
           <td class="text-center"><?= date("d/m/Y", strtotime($row["expiry_date"])) ?></td>
           <td><a class="btn-edit" href="editPromotion.php?id=<?=$row['promotion_id']?>">Sửa</a></td>
           <td><a class="btn-delete" 
-                    href="nguoidung/deletePromotion.php?id=<?=$row['promotion_id']?>"
+                    href="khuyenmai/deletePromotion.php?id=<?=$row['promotion_id']?>"
                     onclick="return confirm('Bạn chắc chắn xóa mục này?');">Xóa</a></td>
         </tr>
     <?php
@@ -57,13 +57,15 @@ if ($_SESSION['user']['type'] != 'Admin'){
       <a class="close" href="#">&times;</a>
       <div class="content">
         <div class="modal">
-          <form enctype='multipart/form-data' action="controller/addPromotion.php" method="POST">
+          <form enctype='multipart/form-data' action="khuyenmai/addPromotion.php" method="POST">
               <label>Mã code:</label>
               <input type="text" class="form-control" name="p_code" placeholder="Ví dụ: GIAM50" required>
               <label>Phần trăm giảm (%):</label>
-              <input type="number" class="form-control" name="p_percent" min="0" max="100" required>
+              <input type="number" class="form-control" name="p_percent" min="0" required>
               <label>Số tiền giảm tối đa:</label>
-              <input type="number" class="form-control" name="p_percent" min="0" max="100" required>
+              <input type="number" class="form-control" name="p_max_val" min="0" required>
+              <label>Ngày hết hạn</label>
+              <input type="date" class="form-control" name="p_expiry" min="0" required>
               <div class="box">
                 <input type="submit" value="Thêm" name="upload">
               </div>

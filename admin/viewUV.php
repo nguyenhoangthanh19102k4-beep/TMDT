@@ -1,6 +1,7 @@
 <?php include "./header.php"; ?>
 <?php include "./sidebar.php"; ?>
 <div>
+  <h2>Loại UV</h2>
   <table class="table ">
     <thead>
       <tr>

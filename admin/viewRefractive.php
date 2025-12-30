@@ -1,6 +1,7 @@
 <?php include "./header.php"; ?>
 <?php include "./sidebar.php"; ?>
 <div>
+  <h2>Bệnh khúc xạ</h2>
   <table class="table ">
     <thead>
       <tr>
