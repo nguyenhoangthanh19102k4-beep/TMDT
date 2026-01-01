@@ -13,14 +13,18 @@ $promo = mysqli_fetch_assoc($res);
 if (isset($_POST['btnUpdate'])) {
     $code = $_POST['p_code'];
     $percent = $_POST['p_percent'];
+    $times = $_POST['p_time'];
     $max_val = $_POST['p_max_val'];
+    $start = $_POST['p_start'];
     $expiry = $_POST['p_expiry'];
 
     // Câu lệnh Update vào bảng promotions
     $sql_update = "UPDATE promotions SET 
                     promotion_code = '$code', 
-                    discount_percentage = '$percent', 
+                    discount_percentage = '$percent',
+                    times = '$times',  
                     max_discount_value = '$max_val', 
+                    start_date = '$start', 
                     expiry_date = '$expiry' 
                   WHERE promotion_id = $id";
 
@@ -53,9 +57,17 @@ include "sidebar.php";
                     <input type="number" class="form-control" name="p_percent" 
                            value="<?php echo $promo['discount_percentage'] ?>" min="0" max="100" required>
 
+                    <label for="p_time">Số lần sử dụng:</label>
+                    <input type="number" class="form-control" name="p_time" 
+                           value="<?php echo $promo['times'] ?>" min="100" required>
+
                     <label for="p_max_val">Số tiền giảm tối đa (đ):</label>
                     <input type="number" class="form-control" name="p_max_val" 
                            value="<?php echo $promo['max_discount_value'] ?>" required>
+
+                    <label for="p_start">Ngày bắt đầu:</label>
+                    <input type="date" class="form-control" name="p_start" 
+                        value="<?php echo $promo['start_date'] ?>" required>
 
                     <label for="p_expiry">Ngày hết hạn:</label>
                     <input type="date" class="form-control" name="p_expiry" 

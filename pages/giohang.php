@@ -13,6 +13,37 @@ if (!$conn) {
     die("Kết nối thất bại:" . mysqli_connect_error());
 }
 
+if (isset($_POST['action']) && $_POST['action'] == 'check_coupon') {
+    $code = mysqli_real_escape_string($conn, $_POST['coupon_code']);
+    $total = floatval($_POST['current_total']);
+    $date_now = date("Y-m-d");
+
+    $sql = "SELECT * FROM promotions WHERE promotion_code = '$code' AND expiry_date >= '$date_now' LIMIT 1";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $discount_percent = $row['discount_percentage'];
+        $max_value = $row['max_discount_value'];
+        
+        $discount_amount = ($total * $discount_percent) / 100;
+        if ($discount_amount > $max_value) $discount_amount = $max_value;
+        
+        $new_total = $total - $discount_amount;
+
+        echo json_encode([
+            'status' => 'success',
+            'discount' => $discount_amount,
+            'new_total' => $new_total,
+            'p_id' => $row['promotion_id'],
+            'msg' => 'Áp dụng mã thành công!'
+        ]);
+    } else {
+        echo json_encode(['status' => 'error', 'msg' => 'Mã không hợp lệ hoặc hết hạn']);
+    }
+    exit(); // Rất quan trọng: Dừng xử lý tại đây để không chạy các HTML bên dưới
+}
+
 if (isset($_POST['update_quantity_id']) && isset($_POST['update_quantity_value'])) {
     $id = $_POST['update_quantity_id'];
     $quantity = max(1, intval($_POST['update_quantity_value']));
@@ -62,8 +93,10 @@ if (isset($_POST['thanhtoan'])) {
         $customer_id = intval($_COOKIE['customer_id']);
     }
 
+    $applied_promotion_id = !empty($_POST['applied_promotion_id']) ? intval($_POST['applied_promotion_id']) : NULL;
+
     $dh = mysqli_prepare($conn, "INSERT INTO orders 
-    (customer_id, customer_name, address, phone, email, pay_method, status) 
+    (customer_id, customer_name, address, phone, email, pay_method, promotion_id, status) 
     VALUES (?,?,?,?,?,?,?)");
     mysqli_stmt_bind_param(
         $dh,
@@ -74,6 +107,7 @@ if (isset($_POST['thanhtoan'])) {
         $dt,
         $mail,
         $hinhthuc,
+        $applied_promotion_id,
         $status
     );
     mysqli_stmt_execute($dh);
@@ -222,21 +256,23 @@ if (empty($_SESSION['cart'])) {
             $total += $t; ?>
         <?php endforeach; ?>
         <b style="font-size: 25px;">MÃ GIẢM GIÁ</b>
-        <div class="giamgia" style="display: flex; gap:10px; margin-top:20px; margin-bottom: 60px;">
+        <div class="giamgia" style="display: flex; gap:10px; margin-top:20px; margin-bottom: 30px;">
             <input style="width:60%; font-size:17px;" type="text" name="magiamgia" id="magiamgia" placeholder="NHẬP MÃ GIẢM GIÁ">
-            <input type="submit" name="giam" value="ÁP DỤNG"></input>
+            <button id = "btnMagiam" name="magiam" >ÁP DỤNG</button>
+            <input type="hidden" name="applied_promotion_id" id="applied_promotion_id">
         </div>
         <div class="tien">
-            <b style="font-size: 20px;">TỔNG TIỀN</b>
+            <b>GIẢM GIÁ</b>
+            <p><?php echo number_format(0, 0, ',', '.') . ' VNĐ'; ?></p>
+        </div>
+        <div class="tien">
+            <b>TỔNG TIỀN</b>
             <p><?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?></p>
         </div>
     </div>
 </div>
 
-
-<?php
-
-?>
+ 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

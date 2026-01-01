@@ -46,3 +46,4 @@ function checkInfomation(){
     }
     return true;
 }
+

@@ -108,7 +108,7 @@ input[name = "thanhtoan"]:hover{
     width: 110px;
 }
 
-input[name="giam"]{
+button[name="magiam"]{
     width: 30%;
     padding: 10px 0px;
     font-size:17px;
@@ -121,7 +121,7 @@ input[name="giam"]{
     transition: .4s cubic-bezier(.5, 0, 0, 1.25);
 }
 
-input[name="giam"]:hover{
+button[name="magiam"]:hover{
     border: 0.2px solid #333;
     background-color: white;
     color: #000000;
@@ -135,7 +135,7 @@ input[name="giam"]:hover{
 
  .tien p{    
     margin: 0;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
  }
 

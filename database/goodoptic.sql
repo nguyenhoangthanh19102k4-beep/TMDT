@@ -491,7 +491,9 @@ CREATE TABLE `promotions` (
   `promotion_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `promotion_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'MaGiamGia',
   `discount_percentage` double NOT NULL DEFAULT 0 COMMENT 'phanTram',
+  `times` int NOT NULL DEFAULT 100 COMMENT 'soLansuDung',
   `max_discount_value` double NOT NULL DEFAULT 0 COMMENT 'giaTriToiDa',
+  `start_date` date NOT NULL COMMENT 'ngayBatdau',
   `expiry_date` date NOT NULL COMMENT 'ngayHetHan',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`promotion_id`),
@@ -502,10 +504,10 @@ CREATE TABLE `promotions` (
 -- Dumping data mẫu cho table `promotions`
 -- -----------------------------------------------------
 
-INSERT INTO `promotions` (`promotion_code`, `discount_percentage`, `max_discount_value`, `expiry_date`) VALUES
-('GIAM20', 20.0, 50000, '2025-12-31'),
-('SUMMER2025', 10.0, 100000, '2025-08-30'),
-('WELCOME', 50.0, 20000, '2026-01-01');
+INSERT INTO `promotions`(`promotion_code`, `discount_percentage`, `times`, `max_discount_value`, `start_date`, `expiry_date`) VALUES
+('GIAM20', 20.0, 100, 50000, '2025-01-01', '2025-12-31'),
+('SUMMER2025', 10.0, 500, 100000, '2025-06-01', '2025-08-30'),
+('WELCOME', 50.0, 1000, 20000, '2025-12-01', '2026-06-01');
 
 -- -----------------------------------------------------
 
