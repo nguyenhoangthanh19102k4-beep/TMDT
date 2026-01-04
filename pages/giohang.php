@@ -14,34 +14,52 @@ if (!$conn) {
 }
 
 if (isset($_POST['action']) && $_POST['action'] == 'check_coupon') {
-    $code = mysqli_real_escape_string($conn, $_POST['coupon_code']);
+    $code = mysqli_real_escape_string($conn, trim($_POST['coupon_code']));
     $total = floatval($_POST['current_total']);
     $date_now = date("Y-m-d");
 
+    // Truy vấn thêm các cột: usage_limit (giới hạn), times_used (đã dùng), discount_type (loại mã)
     $sql = "SELECT * FROM promotions WHERE promotion_code = '$code' AND expiry_date >= '$date_now' LIMIT 1";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $discount_percent = $row['discount_percentage'];
-        $max_value = $row['max_discount_value'];
-        
-        $discount_amount = ($total * $discount_percent) / 100;
-        if ($discount_amount > $max_value) $discount_amount = $max_value;
-        
+
+        // 1. Kiểm tra số lần sử dụng (Giống hàm mẫu bạn đưa)
+        if ($row['times_used'] >= $row['usage_limit']) {
+            echo json_encode(['status' => 'error', 'msg' => 'Mã giảm giá đã hết lượt sử dụng']);
+            exit();
+        }
+
+        // 2. Tính toán tiền giảm
+        $discount_amount = 0;
+        if ($row['discount_type'] == 'percent') {
+            $discount_amount = ($total * $row['discount_percentage']) / 100;
+            // Áp dụng giá giảm tối đa nếu có
+            if ($row['max_discount_value'] > 0 && $discount_amount > $row['max_discount_value']) {
+                $discount_amount = $row['max_discount_value'];
+            }
+        } else {
+            // Loại giảm tiền cố định (fixed)
+            $discount_amount = $row['discount_fixed_value'];
+        }
+
+        // 3. Không cho giảm quá tổng tiền
+        $discount_amount = min($discount_amount, $total);
         $new_total = $total - $discount_amount;
 
         echo json_encode([
             'status' => 'success',
             'discount' => $discount_amount,
             'new_total' => $new_total,
-            'p_id' => $row['promotion_id'],
+            'discount_format' => number_format($discount_amount, 0, ',', '.') . ' VNĐ',
+            'new_total_format' => number_format($new_total, 0, ',', '.') . ' VNĐ',
             'msg' => 'Áp dụng mã thành công!'
         ]);
     } else {
-        echo json_encode(['status' => 'error', 'msg' => 'Mã không hợp lệ hoặc hết hạn']);
+        echo json_encode(['status' => 'error', 'msg' => 'Mã không tồn tại hoặc đã hết hạn']);
     }
-    exit(); // Rất quan trọng: Dừng xử lý tại đây để không chạy các HTML bên dưới
+    exit();
 }
 
 if (isset($_POST['update_quantity_id']) && isset($_POST['update_quantity_value'])) {
@@ -97,10 +115,10 @@ if (isset($_POST['thanhtoan'])) {
 
     $dh = mysqli_prepare($conn, "INSERT INTO orders 
     (customer_id, customer_name, address, phone, email, pay_method, promotion_id, status) 
-    VALUES (?,?,?,?,?,?,?)");
+    VALUES (?,?,?,?,?,?,?,?)");
     mysqli_stmt_bind_param(
         $dh,
-        'issssss',
+        'isssssis',
         $customer_id,
         $hoten,
         $fullAddress,
@@ -256,25 +274,58 @@ if (empty($_SESSION['cart'])) {
             $total += $t; ?>
         <?php endforeach; ?>
         <b style="font-size: 25px;">MÃ GIẢM GIÁ</b>
-        <div class="giamgia" style="display: flex; gap:10px; margin-top:20px; margin-bottom: 30px;">
+        <div class="giamgia" style="display: flex; gap:10px; margin-top:20px; margin-bottom: 20px;">
             <input style="width:60%; font-size:17px;" type="text" name="magiamgia" id="magiamgia" placeholder="NHẬP MÃ GIẢM GIÁ">
-            <button id = "btnMagiam" name="magiam" >ÁP DỤNG</button>
-            <input type="hidden" name="applied_promotion_id" id="applied_promotion_id">
+            <button name="magiam" >ÁP DỤNG</button>
         </div>
         <div class="tien">
-            <b>GIẢM GIÁ</b>
-            <p><?php echo number_format(0, 0, ',', '.') . ' VNĐ'; ?></p>
+            <b style="font-size: 25px;">TIỀN GIẢM</b>
+            <p id="display_discount">0 VNĐ</p>
         </div>
         <div class="tien">
-            <b>TỔNG TIỀN</b>
-            <p><?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?></p>
+            <b style="font-size: 25px;">TỔNG TIỀN</b>
+            <p id="display_total"><?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?></p>
         </div>
-    </div>
 </div>
 
- 
+
+<?php
+
+?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Lắng nghe sự kiện click vào nút Áp dụng
+    $('button[name="magiam"]').click(function(e) {
+        e.preventDefault(); // Ngăn form load lại trang
+
+        var code = $('#magiamgia').val();
+        var currentTotal = <?php echo $total; ?>; // Lấy tổng tiền ban đầu từ PHP
+
+        $.ajax({
+            url: window.location.href, // Gửi yêu cầu đến chính trang này
+            method: 'POST',
+            data: {
+                action: 'check_coupon',
+                coupon_code: code,
+                current_total: currentTotal
+            },
+            dataType: 'json',
+            success: function(response) {
+                if(response.status == 'success') {
+                    // Cập nhật số tiền hiển thị trên giao diện
+                    $('#display_discount').text(response.discount_format);
+                    $('#display_total').text(response.new_total_format);
+                    alert(response.msg);
+                } else {
+                    alert(response.msg);
+                }
+            }
+        });
+    });
+});
+</script>
 <script>
     $(document).ready(function() {
         // 1. Lấy danh sách Tỉnh/Thành

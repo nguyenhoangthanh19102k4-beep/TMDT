@@ -1,104 +1,195 @@
 /* TOÀN TRANG */
-body{
+body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-
+    overflow-x: hidden; /* Ngăn chặn thanh cuộn ngang toàn trang */
 }
-
-
-/* HEADER */
-header{
-    gap: 20px;
+ 
+/* HEADER - Chỉnh lại để linh hoạt hơn */
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
     height: 130px;
     position: sticky;
-    z-index: 100;
+    top: 0;
+    z-index: 1000;
     background: #FFFFFF;
-    background-blend-mode: hard-light;
-    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.logo{
+    width:130px; 
+    height:130px;
 }
 
+.logo img{
+    width: 100%;
+}
 
+/* MENU CHÍNH */
 .menu {
     padding-left: 0px;
-    list-style: none; /*bỏ dấu đầu dòng*/
+    list-style: none;
     display: flex;
-    margin-top: 40px;
-    gap: 30px; /*khoảng cách*/
+    margin: 0; /* Bỏ margin-top cố định */
+    gap: 15px;
 }
 
 .menu li a {
-    width: 130px;
-    height: 50px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-width: 110px; /* Dùng min-width thay vì width cố định */
+    padding: 5px 10px;
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px; /* Giảm nhẹ size để không bị tràn sớm */
     text-align: center;
-
-    color: #000000;
+        color: #000000;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 }
 
 .menu li a:hover {
-    font-weight:600;
-    border-bottom: 0.5px solid black; /* Gạch chân đậm màu đen */
-    transition: transform 0.2s ease, border-bottom 0.2s ease;
+    font-weight: 600;
+    border-bottom: 2px solid black;
 }
 
-.logo{
-    width: 130px;
-    height: 130px;
-}
-.logo a img{
-    width:100%;
-}
-
-button[name = "toggle-search"]{
-    background: none;
+/* NÚT 3 GẠCH (Mặc định ẩn) */
+.menu-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
     cursor: pointer;
-    border: none;
-    width: 40px;
-    height: 40px;
-}
-button[name = "search"]{
-    background: none;
-    cursor: pointer;
-    border: none;
-    width: 40px;
-    height: 40px;
+    z-index: 1100;
 }
 
-
-button img{
-    width: 100%;
-}
-
-input[name = "key"]{
-    padding: 10px 5px;
-    font-size: 20px;
-    border-radius: 5px;
-    border: black solid 0.5px;
-    width: 390px;
-}
-
-.icon-cart {
+.menu-hamburger span {
     width: 30px;
-    height: 30px;
+    height: 3px;
+    background: black;
+    transition: 0.3s;
+    border-radius: 2px;
 }
-.icon-cart a img {
+
+/* PHẦN ICON SEARCH & CART */
+.sxc {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.icon-search {
+    width: 24px;
+    height: 24px;
+}
+.icon-search img {
     width: 100%;
 }
 
-.sxc{
+/* TÌM KIẾM */
+.search-form form {
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
     display: flex;
-    gap: 30px;
-    margin-top: 50px;
+    align-items: center;
+}
+
+/* RESPONSIVE: KHI MÀN HÌNH NHỎ HOẶC ZOOM TO */
+@media (max-width: 1024px) {
+    header {
+        display: flex;
+        height: 80px;
+        align-items: center;
+    }
+
+    main{
+        margin: 0 10px;
+    }    
+    .logo{
+        width:75px; 
+        height:75px;
+    }
+
+    .logo img{
+        width: 100%;
+    }
+
+    /* Đưa nút 3 gạch sang trái */
+    .menu-hamburger {
+        display: flex;
+        order: 1; /* Thứ tự đầu tiên */
+        width: 130px; /* Bằng chiều rộng logo để logo nằm chính giữa tuyệt đối */
+    }
+
+    /* Đưa Logo vào giữa */
+    .logo {
+        order: 2; /* Thứ tự thứ hai */
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Đưa cụm Icon Search/Cart sang phải */
+    .sxc {
+        order: 3; /* Thứ tự cuối cùng */
+        width: 130px; /* Cân bằng với bên trái */
+        justify-content: flex-end;
+        margin-top: 0; /* Reset margin của bạn để cân bằng header */
+    }
+
+    /* Menu xổ từ bên trái (vì nút bấm nằm bên trái) */
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%; 
+        width: 280px;
+        height: 100vh;
+        background: white;
+        transition: 0.4s ease;
+        z-index: 1000;
+        padding-top: 80px; /* Khoảng cách để không bị đè lên bởi header */
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    nav.open {
+        left: 0;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column; /* Quan trọng: Xếp các mục từ trên xuống */
+        justify-content: flex-start; 
+        align-items: flex-start; /* Căn chữ lề trái, hoặc 'center' nếu muốn chữ ở giữa menu */
+        margin-top: 0;
+        padding: 20px;
+        gap: 0; /* Tắt khoảng cách gap của PC */
+    }
+
+    .menu li {
+        width: 100%;
+        display: flex;
+        align-items: center; /* Căn giữa nội dung bên trong dòng theo chiều dọc */
+        border-bottom: 1px solid #eee; /* Đường kẻ phân chia */
+    }
+
+    .menu li a {
+        display: flex;
+        align-items: center; /* Căn giữa chữ theo chiều dọc của dòng đó */
+        width: 100%;
+        height: 60px; /* Độ cao cố định cho mỗi mục để dễ bấm */
+        font-size: 22px;
+        padding-left: 15px;
+        text-align: left;
+        min-width: unset; /* Bỏ min-width của PC */
+    }
+
+    .menu li a:hover {
+        border-bottom: none; /* Bỏ gạch chân hover kiểu PC */
+    }
+
+    /* Hiệu ứng X cho nút 3 gạch */
+    .menu-hamburger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-hamburger.active span:nth-child(2) { opacity: 0; }
+    .menu-hamburger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
 
 
