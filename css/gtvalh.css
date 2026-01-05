@@ -1,24 +1,34 @@
 .lienhe{
-    font-size: 18px;
+    font-size: clamp(12px, 2.5vw, 18px);
 
+}
+
+.gt{
+    font-size: clamp(12px, 2.5vw, 19px);
 }
 
 .dchi{
     display: flex;
     gap: 30px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .dchi .chon_dchi{
-    font-size: 17px;
+    font-size: clamp(12px, 2.5vw, 17px);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 25px;;
 }
+
+.bando{
+    width:40%; 
+    height:auto;
+}
  
 .chon_dchi div{
-    width: 470px;
+    width: 80%;
 }
 
 .dchi .tab_button.active{
@@ -46,4 +56,14 @@
  }
     
 
- 
+ @media (max-width: 1024px) {
+    .bando{
+        width:90%;
+        
+    }
+
+    .dchi{
+        align-items: center;
+        justify-content: center;
+    }
+ }

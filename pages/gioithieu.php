@@ -1,14 +1,14 @@
-<div class="gt" style="font-size: 19px; margin: 0 auto; max-width: 1250px;">
+<div class="gt">
     <div class="banner">
         <img src="imgs/trangchu/2.png" alt="Good Optic">
     </div>
-    <div style="display: flex; justify-content: center; margin: 0px 30px">
-        <div style="display: flex; flex-direction:column; margin-bottom: 60px; ">
+    <div style="display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction:column; margin-bottom: 60px; flex-wrap:wrap;">
             <p>Trang chủ > <span style="font-weight: bold;">Giới thiệu</span></p>
 
             <h1 style="text-align: center;">NHÌN RÕ HÔM NAY, TỰ TIN NGÀY MAI</h1>
             <h3 style="text-align: center;">Hành trình phát triển thương hiệu Good Optic</h3>
-            <p style="width: 1200px; line-height: 2;">
+            <p style="line-height: 2;">
                 <b>1. Khởi nguồn từ sự thấu hiểu - Giai đoạn hình thành</b><br>
                 Good Optic ra đời từ một niềm tin giản dị: mỗi đôi mắt đều xứng đáng được chăm sóc đúng cách. Trong những ngày đầu tiên, giữa thị trường đầy cạnh tranh, chúng tôi không chọn đi nhanh, mà chọn đi đúng - bắt đầu từ sự tử tế trong từng khung kính, sự chuẩn xác trong từng chỉ số thị lực, và một mong muốn bền bỉ: giúp khách hàng “nhìn rõ hôm nay, để tự tin ngày mai.”
                 <br><br><b>2. Chăm chút từng trải nghiệm - Giai đoạn xây nền</b><br>

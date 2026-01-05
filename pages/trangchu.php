@@ -54,7 +54,7 @@ $(document).ready(function(){
 </script>
 
 
-<div class="trangchu" style="margin: 0 auto; max-width: 1250px;">
+
     <div class="banner">
         <div class="slider-wrapper">
             <img src="imgs/trangchu/1.png" alt="Good Optic">
@@ -64,33 +64,39 @@ $(document).ready(function(){
     </div>
 
     <div class="dichvu"> 
-        <div>
+        <div class="dvu1">
+            <div>
             <img src="imgs/trangchu/mdi--support 2.svg" alt="" class="">
             <p> <b>Vệ Sinh Kính Miễn Phí</b> <br>
             tại toàn bộ hệ thống mắt kính Good Optic
             </p>
-        </div>
-        <div>
+            </div>
+            <div>
             <img src="imgs/trangchu/carbon--delivery 1.svg" alt="" class="">
             <p> <b >Giao Hàng Nhanh</b><br>
             chỉ từ 2 ngày trên toàn quốc
             </p>
+            </div>
         </div>
-        <div>
+        
+        <div class="dvu1"> 
+            <div>
             <img src="imgs/trangchu/carbon--ibm-data-product-exchange 1.svg" alt="" class="">
             <p> <b>Thu Cũ Đổi Mới </b><br>
             trợ giá lên đến 200.000đ
             </p>
-        </div>
-        <div>
+            </div>
+            <div>
             <img src="imgs/trangchu/image 1.svg" alt="" class="">
             <p> <b>Hỗ Trợ Đo Mắt</b> <br>
             tại toàn bộ hệ thống mắt kính Good Optic
             </p>
+            </div>
         </div>
+        
     </div>
 
-    <h2 style="margin-top: 90px; text-align:center">NHÌN RÕ HÔM NAY, TỰ TIN NGÀY MAI</h2>
+    <h2 style="text-align:center">NHÌN RÕ HÔM NAY, TỰ TIN NGÀY MAI</h2>
     <div class="bphu">
         <div class="imgsp">
             <img src="imgs/trangchu/newbanner2.jpg" alt="">
@@ -102,7 +108,7 @@ $(document).ready(function(){
         </div>
     </div>
 
-    <h2 style="margin-top: 90px; text-align:center">SẢN PHẨM BÁN CHẠY</h2>
+    <h2 style="text-align:center">SẢN PHẨM BÁN CHẠY</h2>
     <div class="banchay">
  
         <div class="chon_spbc">
@@ -228,17 +234,17 @@ $(document).ready(function(){
         </div>        
     </div>
 
-    <div class="store" style="margin: 0 auto; font-size: 22px; background-color:rgba(235, 228, 175, 0.35); display:flex; max-width:1250px; gap:100px; padding:0px 65px; margin-bottom: 50px;">
+    <div class="store">
         <div style="height: 500px;display: flex; justify-content: center;"><img src="imgs/store.jpg" style="width:100%; height:100%;" alt="GoodOptic"></div>
-        <div  style="display: flex; align-items: center; flex-direction: column;">
-            <h3 style="margin-top: 80px;">HỆ THỐNG MẮT KÍNH GOOD OPTIC</h3>
-            <p style="width: 680px; line-height: 1.5;">
+        <div  style="display: flex; align-items: center; flex-direction: column; margin-left: 10px;">
+            <h3>HỆ THỐNG MẮT KÍNH GOOD OPTIC</h3>
+            <p>
                 Hệ thống Mắt Kính Good Optic với 30+ chi nhánh trên toàn quốc, tập trung hầu hết ở các tỉnh thành lớn như: TP. Hồ Chí Minh, TP. Hà Nội, TP. Đà Nẵng, TP. Cần Thơ, TP. Hải Phòng và nhiều tỉnh thành khác.
                 <br><br><br>
                 <i>“Good Optic - Nhìn rõ hôm nay, tự tin ngày mai”</i>
             </p>
         </div>
     </div>
-</div>
+
 
 

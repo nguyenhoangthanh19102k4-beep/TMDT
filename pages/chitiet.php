@@ -39,9 +39,9 @@ if (isset($_GET['id'])) {
 
     })
 </script>
-<div class="chitiet" style="margin: 0 auto;">
+<div class="chitiet" style="padding: 25px 20px;">
     <div class="ctietsp">
-        <div style="width: 650px;">
+        <div class="ctsp">
             <?php
             $giam_phantram = 0;
             if ($product['price'] > 0 && $product['disscounted_price'] < $product['price']) {
@@ -81,10 +81,10 @@ if (isset($_GET['id'])) {
             ?>
             <img style="width: 100%;" src="<?php echo $imgSrc; ?>" alt="Ảnh sản phẩm" loading="lazy">
         </div>
-        <div>
+        <div class="ctsp">
             <h1 style="margin-top: 0;"><?php echo $product['product_name']; ?></h1>
             <p>Mã sản phẩm: <?php echo $product['product_id']; ?></p>
-            <div class="price" style="display: flex; gap: 100px; margin: 20px 0;">
+            <div class="price">
                 <b style="font-size: 25px;"><?php echo number_format($product['disscounted_price'], 0, ',', '.') . ' VNĐ'; ?></b>
                 <i style="text-decoration: line-through; margin-top: 10px;"><?php echo number_format($product['price'], 0, ',', '.') . ' VNĐ'; ?></i>
             </div>
@@ -122,32 +122,39 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 
-    <div class="dichvu" style="max-width: 1250px;padding: 30px; border-top: 0.5px solid black; border-bottom: 0.5px solid black; width: 90%; margin: 50px auto;">
-        <div>
+    <div class="dichvu" style="border-top: 0.5px solid black; border-bottom: 0.5px solid black;"> 
+        <div class="dvu1">
+            <div>
             <img src="imgs/trangchu/mdi--support 2.svg" alt="" class="">
             <p> <b>Vệ Sinh Kính Miễn Phí</b> <br>
-                tại toàn bộ hệ thống mắt kính Good Optic
+            tại toàn bộ hệ thống mắt kính Good Optic
             </p>
-        </div>
-        <div>
+            </div>
+            <div>
             <img src="imgs/trangchu/carbon--delivery 1.svg" alt="" class="">
-            <p> <b>Giao Hàng Nhanh</b><br>
-                chỉ từ 2 ngày trên toàn quốc
+            <p> <b >Giao Hàng Nhanh</b><br>
+            chỉ từ 2 ngày trên toàn quốc
             </p>
+            </div>
         </div>
-        <div>
+        
+        <div class="dvu1"> 
+            <div>
             <img src="imgs/trangchu/carbon--ibm-data-product-exchange 1.svg" alt="" class="">
             <p> <b>Thu Cũ Đổi Mới </b><br>
-                trợ giá lên đến 200.000đ
+            trợ giá lên đến 200.000đ
             </p>
-        </div>
-        <div>
+            </div>
+            <div>
             <img src="imgs/trangchu/image 1.svg" alt="" class="">
             <p> <b>Hỗ Trợ Đo Mắt</b> <br>
-                tại toàn bộ hệ thống mắt kính Good Optic
+            tại toàn bộ hệ thống mắt kính Good Optic
             </p>
+            </div>
         </div>
+        
     </div>
+
     <?php
     $material_id = intval($product['Material_id']);
     $product_id = intval($product['product_id']);

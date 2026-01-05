@@ -1,7 +1,6 @@
 .dmsp{
     padding: 25px 20px;
-    max-width: 1250px;
-    margin: 0 auto;
+
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -9,36 +8,34 @@
 
 .trongkinh{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: center;
     gap:30px;
 }
 
 .timkiem{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: center;
     gap:30px;
 }
 
 .dsbc{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
-
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap:30px;
-}
-
+} 
 
 .kinhram{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: center;
     gap:30px;
 }
 
 .gongkinh{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: center;
     gap:30px;
 }
@@ -49,11 +46,7 @@
     flex-direction: column;
     justify-content: center;
 }
-
-.ndsp div{
-
-    overflow:hidden;
-}
+ 
 
 .ndsp div img{
     width:100%;
@@ -88,6 +81,7 @@
     justify-content: center;
     display: flex;
     gap: 20px;
+    font-size: clamp(12px, 2.5vw, 20px);
 }
 
 .filter select{
@@ -96,7 +90,14 @@
     text-align: left;
     border-radius: 30px;
     border: 0.2px solid black;
-    width: 140px;
+    width: 15%;
+}
+
+@media (max-width: 1024px) {
+    .filter select{
+        width: 30%;
+        font-size: clamp(10px, 2.5vw, 19px);
+    }
 }
 
 .pagination {

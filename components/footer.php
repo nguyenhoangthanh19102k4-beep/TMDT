@@ -1,7 +1,7 @@
 <footer>                                                                                                                                                                                                                                                                                                                                                                                                                                       
     <div class="c1">
-        <div class="logof" style="width: 225px; height: 225px;">
-            <img src="imgs/Logo1.png" alt="Good Optic"  style="width: 100%;">
+        <div class="logof">
+            <img src="imgs/Logo1.png" alt="Good Optic">
         </div>                                                                                                                                                                                                                                                                                                                                                                  
         <div class="social">
             <div class="fb" style="padding-top:3px">

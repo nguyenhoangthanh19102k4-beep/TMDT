@@ -1,21 +1,21 @@
 .giohang{
-    padding: 40px 35px;
+    margin: 20px 0;
     background-color: #59595915;
     display: flex;
     gap: 30px;
-    margin: 0 auto;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
 }
 
 .giohang p{
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: clamp(10px, 2.5vw, 14px);
 }
 
 .giohang input[type="text"]{
     color: #595959e6;
-    font-size: 15px;
+
     border: 0.1px solid;
     border-radius: 10px;
     padding: 10px 10px;
@@ -26,10 +26,32 @@
     padding: 30px;
     background-color: white;
     border-radius: 20px;
-    width: 500px;
+    width: 45%;
     box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
 }
 
+.giohang .gh{
+    padding: 30px;
+    background-color: white;
+    border-radius: 20px;
+    width: 40%;
+    box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+
+@media (max-width: 767px) {
+    .giohang{
+        font-size: clamp(10px, 2.5vw, 19px);
+        font-size: clamp(10px, 2.5vw, 25px);
+    }
+    .giohang .ttvc{
+        width: 90%;
+    }
+    .giohang .gh{
+        width: 90%;
+    }
+}
 .noio{
     display: flex;
     gap: 7px;
@@ -40,7 +62,7 @@
 }
 
 .noio select{
-    font-size: 15px;
+    font-size: clamp(10px, 2.5vw, 15px);
     border: 0.1px solid;
     border-radius: 5px;
     padding: 10px 7.5px;
@@ -53,7 +75,7 @@
     padding: 10px 10px;
     margin: 20px 0px;
     border: 0.2px solid gray;
-    font-size: 17px;
+    font-size: clamp(10px, 2.5vw, 17px);
     display: flex;
     gap: 49%;
     border-radius: 10px;
@@ -64,14 +86,14 @@ textarea[name="note"]{
     font-family: 'Inter', sans-serif;
     resize: none;
     padding: 10px 10px;
-    font-size: 15px;
+    font-size: clamp(10px, 2.5vw, 15px);
     border-radius: 10px;
 }
 
 input[name = "thanhtoan"]{
     margin-top: 40px;
     border: 0.2px solid #333;
-    font-size: 21px;
+    font-size: clamp(15px, 2.5vw, 21px);
     cursor: pointer;
     color: white;
     padding: 10px 25px;
@@ -89,7 +111,7 @@ input[name = "thanhtoan"]:hover{
  }
 
  .sp_cart .ndsp .tensp{
-    font-size: 18px;
+    font-size: clamp(12px, 2.5vw, 18px);
  }
 
  .sp_cart a{
@@ -133,9 +155,14 @@ button[name="magiam"]:hover{
     justify-content: space-between;
  }
 
- .tien p{    
-    margin: 0;
-    font-size: 25px;
+ .tien p{   
+    font-size: clamp(19px, 2.5vw, 25px);
+    font-weight: 600;
+ }
+
+  .tien b{  
+    padding-top: 20px; 
+    font-size: clamp(19px, 2.5vw, 25px);
     font-weight: 600;
  }
 

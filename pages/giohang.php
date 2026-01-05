@@ -171,24 +171,24 @@ if (empty($_SESSION['cart'])) {
 
 <div class="giohang">
     <form class="ttvc" method="post" name="infor" id="infor" onsubmit="return checkInfomation();">
-        <b style="font-size: 25px;">THÔNG TIN VẬN CHUYỂN</b> <br>
-        <i style="font-size: 13px;">Vui lòng nhập đầy đủ các thông tin bên dưới</i>
+        <b style="font-size: clamp(19px, 2.5vw, 25px)">THÔNG TIN VẬN CHUYỂN</b> <br>
+        <i style="font-size: clamp(13px, 2.5vw, 13px);">Vui lòng nhập đầy đủ các thông tin bên dưới</i>
 
         <div>
             <p>Họ và tên *</p>
             <input type="text" name="hoten" placeholder="Họ và tên của bạn">
         </div>
-        <div style="display: flex; gap: 5px">
-            <div class="sdt" style="width: 52%;">
+        <div style="display: flex; gap: 9%">
+            <div class="sdt" style="width: 40%;">
                 <p>Số điện thoại *</p>
                 <input type="text" name="dt" placeholder="Số điện thoại của bạn">
             </div>
-            <div class="email">
+            <div class="email" style="width: 45%">
                 <p>Email</p>
                 <input type="text" name="mail" placeholder="Email của bạn">
             </div>
         </div>
-        <div class="noio" style="width: 98%;">
+        <div class="noio" style="width: 96%;">
             <div>
                 <p>Tỉnh/Thành phố *</p>
                 <select name="tinh" id="tinh" style="width: 90%;">
@@ -218,22 +218,22 @@ if (empty($_SESSION['cart'])) {
             <textarea name="note" sps="6" placeholder="Chú thích cho đơn hàng của bạn về đơn hàng hoặc về vận chuyển,..."></textarea>
         </div>
         <div class="htthanhtoan" style="margin-top: 20px;">
-            <b style="font-size: 25px;">HÌNH THỨC THANH TOÁN</b>
+            <b style="font-size: clamp(19px, 2.5vw, 25px);">HÌNH THỨC THANH TOÁN</b>
             <label>Thanh toán khi nhận hàng<input type="radio" name="hinhthuc" value="Tiền mặt" checked="true"></label>
             <label>Chuyển khoản ngân hàng<input type="radio" name="hinhthuc" value="Chuyển khoản"></label>
-            <p style="font-size: 10px; margin: -10px 3px; font-size: 12px;">Thông tin cá nhân của bạn được sử dụng để xử lý đơn hàng, trải nghiệm trên trang web và các mục đích khác được mô tả trong <b>chính sách bảo mật</b> của chúng tôi.</p>
+            <p style="margin: -10px 3px; font-size: clamp(6px, 2.5vw, 12px);">Thông tin cá nhân của bạn được sử dụng để xử lý đơn hàng, trải nghiệm trên trang web và các mục đích khác được mô tả trong <b>chính sách bảo mật</b> của chúng tôi.</p>
             <input type="submit" name="thanhtoan" id="thanhtoan" value="THANH TOÁN"></input>
         </div>
     </form>
 
-    <div class="ttvc">
-        <b style="font-size: 25px;">GIỎ HÀNG</b>
+    <div class="gh">
+        <b style="font-size: clamp(19px, 2.5vw, 25px);">GIỎ HÀNG</b>
         <?php $total = 0; ?>
         <?php foreach ($_SESSION['cart'] as $sp): ?>
-            <div class="sp_cart" style="margin-top: 25px;">
+            <div class="sp_cart" style="margin: 25px 0;">
                 <a style="margin-bottom: 20px;" href="index.php?page=chitiet&id=<?php echo $sp['id']; ?>" class="sp">
                     <div class="ndsp" style="display: flex; flex-direction: row; gap: 30px; justify-content: flex-start;">
-                        <div class="anhsp" style="width: 140px;">
+                        <div class="anhsp">
                             <?php
                             $imgInput = $sp['imgs'];
 
@@ -255,8 +255,8 @@ if (empty($_SESSION['cart'])) {
                             <img src="<?php echo $imgSrc; ?>" alt="Ảnh sản phẩm" loading="lazy">
                         </div>
                         <div>
-                            <p class="tensp" style="width: 230px;margin: 0; font-weight: 500;"> <a href="index.php?page=chitiet&id=<?php echo $sp['id']; ?>" style="text-decoration: underline; color: black;"><?php echo $sp['name']; ?></a></p>
-                            <p class="gia" style="margin-top: 20px;"><?php echo number_format($sp['price'], 0, ',', '.') . ' đ'; ?></p>
+                            <p class="tensp" style="margin: 0; font-weight: 500;"> <a href="index.php?page=chitiet&id=<?php echo $sp['id']; ?>" style="text-decoration: underline; color: black;"><?php echo $sp['name']; ?></a></p>
+                            <p class="gia" style="margin-top: 20px; font-size: clamp(13px, 2.5vw, 25px)"><?php echo number_format($sp['price'], 0, ',', '.') . ' đ'; ?></p>
                             <form method="post" style="display: inline-block;">
                                 <input type="hidden" name="update_quantity_id" value="<?php echo $sp['id']; ?>">
                                 <input type="number" name="update_quantity_value" value="<?php echo $sp['quantity']; ?>" min="1" onchange="this.form.submit()">
@@ -273,17 +273,17 @@ if (empty($_SESSION['cart'])) {
             $t = $sp['price'] * $sp['quantity'];
             $total += $t; ?>
         <?php endforeach; ?>
-        <b style="font-size: 25px;">MÃ GIẢM GIÁ</b>
+        <b style="font-size: clamp(19px, 2.5vw, 25px);">MÃ GIẢM GIÁ</b>
         <div class="giamgia" style="display: flex; gap:10px; margin-top:20px; margin-bottom: 20px;">
             <input style="width:60%; font-size:17px;" type="text" name="magiamgia" id="magiamgia" placeholder="NHẬP MÃ GIẢM GIÁ">
             <button name="magiam" >ÁP DỤNG</button>
         </div>
         <div class="tien">
-            <b style="font-size: 25px;">TIỀN GIẢM</b>
+            <b>TIỀN GIẢM</b>
             <p id="display_discount">0 VNĐ</p>
         </div>
         <div class="tien">
-            <b style="font-size: 25px;">TỔNG TIỀN</b>
+            <b>TỔNG TIỀN</b>
             <p id="display_total"><?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?></p>
         </div>
 </div>
