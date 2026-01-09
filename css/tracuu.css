@@ -16,6 +16,22 @@
     width: 40%;
 }
 
+.tracuu button{
+    margin: 20px 0;
+    font-family: Inter;
+    padding: 10px 5px;
+    font-size: clamp(11px, 2vw, 17px);
+    background: black;
+    color: white;
+    font-weight: 400;
+}
+
+.tracuu button:hover{
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
 @media (max-width: 1024px){
     .tracuu input[type="text"]{
         width: 60%;
