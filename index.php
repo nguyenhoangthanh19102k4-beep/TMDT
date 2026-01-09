@@ -37,6 +37,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <link rel="stylesheet" type="text/css" href="css/tracuu.css">
     <link rel="stylesheet" type="text/css" href="css/trangchu.css">
     <link rel="stylesheet" type="text/css" href="css/danhmucsp.css">
     <link rel="stylesheet" type="text/css" href="css/gtvalh.css">

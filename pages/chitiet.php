@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
             <?php if ($giam_phantram > 0): ?>
                 <p style="font-size: 20px;
                     z-index: 1;
-                    top: 250px;
+                    
                     margin: 0;
                     border-radius: 0px 30px 30px 0px;
                     width: 100px;

@@ -1,0 +1,30 @@
+.icon-search button{
+    background: none;
+    border: none;
+}
+
+.icon-search img{
+    width: 21px;
+}
+
+.icon-search form{
+    width: fit-content;
+    top: 30%;
+    right: 11%;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-search input[type="text"]{
+    width: 80%;
+    font-size: clamp(12px, 2vw, 17px);
+    padding: 5px 5px;
+    border: none;
+    outline: none !important;
+    box-shadow: none !important;
+}

@@ -16,6 +16,41 @@ $(document).ready(function(){
         $("#nav-menu").removeClass("open");
         $("#hamburger").removeClass("active");
     });
+
+    // Chọn các phần tử cần thiết
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.querySelector('#key');
+
+    // 1. Tự động đóng khi người dùng cuộn trang (Lướt điện thoại)
+    window.addEventListener('scroll', () => {
+        if (searchForm.style.display !== 'none') {
+            searchForm.style.display = 'none'; 
+            // Hoặc dùng class nếu bạn đang ẩn/hiện bằng class: 
+            // searchForm.classList.remove('active');
+        }
+    }, { passive: true });
+    
+    // Click vào nút Search để mở/đóng
+    $toggleSearch.click(function(e){
+        e.stopPropagation(); // Quan trọng: Ngăn không cho sự kiện lan ra document
+        $searchForm.stop().slideToggle(200);
+    });
+
+    // NGĂN CHẶN việc đóng form khi nhấn vào bên trong form
+    $searchForm.click(function(e){
+        e.stopPropagation(); // Khi nhấn vào ô input hay trong form, nó sẽ KHÔNG bị tắt
+    });
+
+    // Tự động đóng khi nhấn vào bất kỳ vị trí nào bên ngoài
+    document.addEventListener('click', (event) => {
+        const isClickInside = searchForm.contains(event.target);
+        const isSearchButton = event.target.closest('#toggle-search'); // ID nút mở tìm kiếm
+
+        if (!isClickInside && !isSearchButton) {
+            searchForm.style.display = 'none';
+            // searchForm.classList.remove('active');
+        }
+    });
 });
 </script>
 <header>
@@ -44,9 +79,14 @@ $(document).ready(function(){
 
     <div class="sxc">
         <div class="icon-search">
-            <a href="#">
-                <img src="imgs/icon-header/cil--search.svg" alt="Tìm kiếm">
-            </a>
+            <button id="toggle-search" name="toggle-search"><img src="imgs/icon-header/cil--search.svg" alt="Tìm kiếm"></button>
+            <div class="search-form" style="display: none;">
+                <form method="get">
+                    <input type="hidden" name="page" value="timkiem">
+                    <input type="text" name="key" id="key" placeholder="Nhập từ khóa tìm kiếm">
+                    <button type="submit" name="search"><img src="imgs/icon-header/cil--search.svg" alt="Tìm kiếm"></button>
+                </form>
+            </div>
         </div>
         <div class="icon-cart">
             <a href="index.php?page=giohang">

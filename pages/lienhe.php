@@ -33,16 +33,22 @@ $(document).ready(function(){
 </script>
 
 <div class="lienhe">
-    
-    <div style="display: flex; justify-content: center;">
-        <div style="display: flex; flex-direction:column;">
+    <div class="banner">
+        <div class="slider-wrapper">
+            <img src="imgs/trangchu/1.png" alt="Good Optic">
+            <img src="imgs/trangchu/2.png" alt="Good Optic">
+            <img src="imgs/trangchu/3.png" alt="Good Optic">
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; flex-direction:column;">
+        <div style="display: flex; flex-direction:column; margin: 0px 20px;">
             <p>Trang chủ > <span style="font-weight: bold;">Liên hệ</span></p>
 
             <h1>LIÊN HỆ</h1>
-            <p>
+            <p style="line-height: 2;">
                 <b>- Giờ làm việc:</b> 9h30 - 21h30 (Từ thứ 2 đến chủ nhật)<br>
                 <b>- Hotline:</b> 19002005<br>
-                <ul>
+                <ul style="line-height: 2;">
                     <li><b>Quận Bình Thạnh:</b> Số 2, Đường Võ Oanh, Phường 25</li>
                     <li><b>Quận 12:</b> Số 70 đường Tô Ký, phường Tân Chánh Hiệp</li>
                     <li><b>Quận Thủ Đức:</b> Số 10 đường số 12, KP3, P. An Khánh</li>
@@ -68,8 +74,9 @@ $(document).ready(function(){
                     <div class="tab_button" data-index="2">Địa chỉ: Số 10 đường số 12, KP3, P. An Khánh, Quận Thủ Đức</div>
                 </div>
             </div>
-
-            <div class="dichvu"> 
+        
+        </div>
+        <div class="dichvu"> 
         <div class="dvu1">
             <div>
             <img src="imgs/trangchu/mdi--support 2.svg" alt="" class="">
@@ -84,7 +91,7 @@ $(document).ready(function(){
             </p>
             </div>
         </div>
-        
+
         <div class="dvu1"> 
             <div>
             <img src="imgs/trangchu/carbon--ibm-data-product-exchange 1.svg" alt="" class="">
@@ -99,8 +106,6 @@ $(document).ready(function(){
             </p>
             </div>
         </div>
-        
-    </div>
     </div>
 
    

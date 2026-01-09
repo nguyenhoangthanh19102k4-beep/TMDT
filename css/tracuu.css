@@ -1,0 +1,27 @@
+.tracuu form{
+    align-items: center;
+    display: flex; 
+    flex-direction:column;
+}
+
+.tracuu .dichvu{
+    margin: 10% 0;
+}
+
+.tracuu input[type="text"]{
+    border: 0.5px solid black;
+    margin: 10px 0;
+    padding: 10px 5px;
+    font-size: clamp(12px, 2vw, 17px);
+    width: 40%;
+}
+
+@media (max-width: 1024px){
+    .tracuu input[type="text"]{
+        width: 60%;
+    }
+
+    .tracuu form{
+        align-items: start;
+    }
+}
