@@ -219,8 +219,43 @@ if (empty($_SESSION['cart'])) {
         </div>
         <div class="htthanhtoan" style="margin-top: 20px;">
             <b style="font-size: clamp(19px, 2.5vw, 25px);">HÌNH THỨC THANH TOÁN</b>
-            <label>Thanh toán khi nhận hàng<input type="radio" name="hinhthuc" value="Tiền mặt" checked="true"></label>
-            <label>Chuyển khoản ngân hàng<input type="radio" name="hinhthuc" value="Chuyển khoản"></label>
+            <label>
+                <div class="payment-content">
+                    <div class="payment-logo">
+                        <img src="imgs/cash.png" alt="COD Icon" loading="lazy">
+                    </div>
+                    <div class="payment-text">Thanh toán khi nhận hàng</div>
+                    <input type="radio" class="checker" name="hinhthuc" value="Tiền mặt" checked="true">
+                </div>
+
+            </label>
+            <label>
+                <div class="payment-content">
+                    <div class="payment-logo">
+                        <img src="imgs/banking.png" alt="Bank Icon" loading="lazy">
+                    </div>
+                    <div class="payment-text">Chuyển khoản ngân hàng</div>
+                    <input type="radio" class="checker" name="hinhthuc" value="Chuyển khoản">
+                </div>
+            </label>
+            <label>
+                <div class="payment-content">
+                    <div class="payment-logo">
+                        <img src="imgs/momo.png" alt="Momo Icon" loading="lazy">
+                    </div>
+                    <div class="payment-text">Momo</div>
+                    <input type="radio" class="checker" name="hinhthuc" value="Momo">
+                </div>
+            </label>
+            <label>
+                <div class="payment-content">
+                    <div class="payment-logo">
+                        <img src="imgs/vnpay.png" alt="VNPAY Icon" loading="lazy">
+                    </div>
+                    <div class="payment-text">VNPAY</div>
+                    <input type="radio" class="checker" name="hinhthuc" value="VNPAY">
+                </div>
+            </label>
             <p style="margin: -10px 3px; font-size: clamp(10px, 2vw, 13px);">Thông tin cá nhân của bạn được sử dụng để xử lý đơn hàng, trải nghiệm trên trang web và các mục đích khác được mô tả trong <b>chính sách bảo mật</b> của chúng tôi.</p>
             <input type="submit" name="thanhtoan" id="thanhtoan" value="THANH TOÁN"></input>
         </div>

@@ -30,8 +30,91 @@
     box-shadow: 0px 4px 15px 1px rgba(0, 0, 0, 0.25);
 }
 
-input[type = "radio"]{
-    width: 5%;
+/* Hiệu ứng hover */
+.htthanhtoan label:hover {
+    border-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Khi radio được chọn */
+.htthanhtoan label:has(input[type="radio"]:checked) {
+    border-color: #000000;
+    background-color: #eeebeb;
+    font-weight: bold;
+}
+
+.htthanhtoan input[type="radio"] {
+    display: none;
+}
+
+.htthanhtoan label::before {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s;
+}
+
+.htthanhtoan label:has(input[type="radio"]:checked)::before {
+    background-color: #000000;
+    border-color: #959595;
+}
+
+/* Dấu chấm trắng bên trong */
+.htthanhtoan label::after {
+    content: '';
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.htthanhtoan label:has(input[type="radio"]:checked)::after {
+    opacity: 1;
+}
+.htthanhtoan .payment-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+/* Logo phương thức thanh toán */
+.htthanhtoan .payment-logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.htthanhtoan .payment-logo::before {
+    background: White;
+}
+
+.htthanhtoan .payment-logo::after {
+    background: #eeebeb;
+}
+
+.htthanhtoan .payment-logo img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
 }
 
 .giohang .gh{
@@ -74,18 +157,22 @@ input[type = "radio"]{
 }
 
 .htthanhtoan label{
-    justify-content: center;    
     align-items: center;
+    justify-content: space-between;
     white-space: nowrap;
     width: 90%;
+    min-height: 60px;
     color: #595959e6;
-    padding: 10px 10px;
+    padding: 10px 10px 10px 30px;
+    position: relative;
     margin: 20px 0px;
     border: 0.2px solid gray;
     font-size: clamp(12px, 2vw, 17px);
     display: flex;
     gap: 40%;
     border-radius: 10px;
+    cursor: pointer;
+
 }
 
 textarea[name="note"]{
